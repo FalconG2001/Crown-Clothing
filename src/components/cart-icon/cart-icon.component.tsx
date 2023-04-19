@@ -7,12 +7,13 @@ import { useContext } from "react";
 
 const CartIcon = () => {
   const { cartState, toggleCartState }: any = useContext(CartContext);
+  const { cartCount }: any = useContext(CartContext);
   const cartStateToggler = () => toggleCartState(!cartState);
 
   return (
     <div className="cart-icon-container" onClick={cartStateToggler}>
       <ShoppingIcon className="shopping-icon" />
-      <span className="item-count">0</span>
+      <span className="item-count">{cartCount}</span>
     </div>
   );
 };
