@@ -1,7 +1,11 @@
-import "./category-preview.styles.scss";
+import "./category-preview.styles.jsx";
 
 import ProductCard from "../product-card/product-card.component";
 import { useNavigate } from "react-router-dom";
+import {
+  CategoryPreviewContainer,
+  PreviewCategory,
+} from "./category-preview.styles.jsx";
 
 const CategoryPreview = ({ title, products }: any) => {
   const navigate = useNavigate();
@@ -9,20 +13,20 @@ const CategoryPreview = ({ title, products }: any) => {
     navigate(`/shop/${pageName}`);
   };
   return (
-    <div className="category-preview-container">
+    <CategoryPreviewContainer>
       <h2>
         <span className="title" onClick={() => gotoParticularPage(title)}>
           {title.toUpperCase()}
         </span>
       </h2>
-      <div className="preview">
+      <PreviewCategory>
         {products
           .filter((_: any, idx: any) => idx < 4)
           .map((product: any) => {
             return <ProductCard key={product.id} product={product} />;
           })}
-      </div>
-    </div>
+      </PreviewCategory>
+    </CategoryPreviewContainer>
   );
 };
 

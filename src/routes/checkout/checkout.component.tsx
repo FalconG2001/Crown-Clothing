@@ -1,6 +1,11 @@
 import { useContext } from "react";
 
-import "./checkout.styles.scss";
+import {
+  HeaderBlockRoute,
+  CheckoutContainerRoute,
+  CheckoutHeaderRoute,
+  TotalRoute,
+} from "./checkout.styles.jsx";
 import { CartContext } from "../../components/contexts/cart.context";
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
 
@@ -8,29 +13,29 @@ const Checkout = () => {
   const { cartItems, totalPrice }: any = useContext(CartContext);
 
   return (
-    <div className="checkout-container">
-      <div className="checkout-header">
-        <div className="header-block">
+    <CheckoutContainerRoute>
+      <CheckoutHeaderRoute>
+        <HeaderBlockRoute>
           <span>Product</span>
-        </div>
-        <div className="header-block">
+        </HeaderBlockRoute>
+        <HeaderBlockRoute>
           <span>Description</span>
-        </div>
-        <div className="header-block">
+        </HeaderBlockRoute>
+        <HeaderBlockRoute>
           <span>Quantity</span>
-        </div>
-        <div className="header-block">
+        </HeaderBlockRoute>
+        <HeaderBlockRoute>
           <span>Price</span>
-        </div>
-        <div className="header-block">
+        </HeaderBlockRoute>
+        <HeaderBlockRoute>
           <span>Remove</span>
-        </div>
-      </div>
+        </HeaderBlockRoute>
+      </CheckoutHeaderRoute>
       {cartItems.map((cartItem: any) => {
         return <CheckoutItem key={cartItem.id} cartItem={cartItem} />;
       })}
-      <span className="total">Total: ${totalPrice}</span>
-    </div>
+      <TotalRoute>Total: ${totalPrice}</TotalRoute>
+    </CheckoutContainerRoute>
   );
 };
 

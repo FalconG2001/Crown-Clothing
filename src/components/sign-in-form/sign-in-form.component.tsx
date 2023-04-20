@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import FormInput from "../form-input/form-input.component";
-import "./sign-in-form.styles.scss";
+import { SigInContainer } from "./sign-in-form.styles.jsx";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 
 // import { UserContext } from "../contexts/user.context";
@@ -59,7 +59,7 @@ const SignInForm = () => {
   };
 
   return (
-    <div className="sign-up-container">
+    <SigInContainer>
       <h2>Already have an account?</h2>
       <span>Sign in with your email!</span>
       <form
@@ -96,7 +96,7 @@ const SignInForm = () => {
           </Button>
         </div>
       </form>
-    </div>
+    </SigInContainer>
   );
 };
 
