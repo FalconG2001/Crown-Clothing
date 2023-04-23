@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useSelector } from "react-redux";
 
 import {
   HeaderBlockRoute,
@@ -6,11 +6,16 @@ import {
   CheckoutHeaderRoute,
   TotalRoute,
 } from "./checkout.styles.jsx";
-import { CartContext } from "../../components/contexts/cart.context";
+
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
+import {
+  selectCartItems,
+  selectCartTotal,
+} from "../../store/cart/cart.selector.js";
 
 const Checkout = () => {
-  const { cartItems, totalPrice }: any = useContext(CartContext);
+  const cartItems: any = useSelector(selectCartItems);
+  const totalPrice: any = useSelector(selectCartTotal);
 
   return (
     <CheckoutContainerRoute>
