@@ -12,6 +12,7 @@ import {
   selectCartItems,
   selectCartTotal,
 } from "../../store/cart/cart.selector.js";
+import PaymentForm from "../../components/payment-form/payment-form.component";
 
 const Checkout = () => {
   const cartItems: any = useSelector(selectCartItems);
@@ -40,6 +41,7 @@ const Checkout = () => {
         return <CheckoutItem key={cartItem.id} cartItem={cartItem} />;
       })}
       <TotalRoute>Total: ${totalPrice}</TotalRoute>
+      <PaymentForm />
     </CheckoutContainerRoute>
   );
 };
